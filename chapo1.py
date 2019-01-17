@@ -17,8 +17,8 @@ print(12 ++ 2) # ignoring one +
 
 
 divide = 123 / 23 ; print(divide)
-divisor = 123 // 23 ; print(divisor)
-remains = 123 % 23 ; print(remains) # 123 = 23 * 5 + 8
+divisor = 123 // 23 ; print(divisor)  # floor division operator
+remains = 123 % 23 ; print(remains) # 123 = 23 * 5 + 8   # modulus operator
 
 
 # tools

@@ -255,7 +255,106 @@ s = delimiter.join(t)  # weird syntax : looks like
 print("<-> ".join(t))  # pining<-> for<-> the<-> fjords
 
 
+# objects and values
+a = "banana"
+b = "banana"
 
+print(a == b) # True
+print(id(a))
+print(id(b))
+print(id(a) == id(b))  # True
+
+# 2xchecked if the 2 variables refer to the same object
+# is operatpr
+print(a is b) # True
+
+
+# create 2 lists with the same content
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a is b)  # False
+print(a == b)  # True
+
+# we are saying that lists are equivalent. because they have the same elements
+# but not identical, because they are not the same object
+
+print(id(a))
+print(id(b))
+
+print(id(a) == id(b)) # False
+
+
+# how to nake aliases (references the same object)
+
+a = [1, 2, 3]
+b = a
+
+print(a is b) # True
+
+
+
+# reference is the association between variable and object
+
+
+def delete_head(t):
+    del t[0]
+
+
+
+letters = ['a', 'b', 'c']
+
+print("before delete head: ", letters)
+delete_head(letters)
+print("after delete head: ", letters)
+
+# we pass the reference
+# t amd letters are aliases to the same object : t is letters
+
+
+
+
+# OPERATIONS THAT MODIFY LISTS AND OPERATIONS THAT CREATES NEW LISTS
+
+
+#APPEND MODIFY BUT NOT CREATE
+t1  =  [1, 2 ]
+print("before appending ", t1)
+id1 = id(t1)
+t1.append(3) # None
+print("after appending ", t1)
+id2 = id(t1)
+
+print("id1 vs id2 ", id1 == id2)  # True aka the same list
+
+
+
+# +  creates new lists
+
+t1  =  [1, 2 ]
+print("before appending ", t1)
+id1 = id(t1)
+
+
+t2 = t1 + [3]  # new list
+id2 = id(t2)
+print("id1 vs id2 ", id1 == id2)  # False
+
+
+
+# slice operatpr
+
+t4 = [1, 2, 3]
+id1 = id(t4)
+t2 = t4[1:]   # different list
+print(t2)
+id2 = id(t2)
+print("id1 vs id2 ", id1 == id2)  # False
+
+
+# what about forcing
+
+t1 = t[1:]
 
 
 

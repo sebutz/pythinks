@@ -293,9 +293,11 @@ b = a
 print(a is b) # True
 
 
+# List as arguments
 
-# reference is the association between variable and object
 
+# using reference (reference is the association between variable and object)
+print("delete using reference....")
 
 def delete_head(t):
     del t[0]
@@ -305,8 +307,13 @@ def delete_head(t):
 letters = ['a', 'b', 'c']
 
 print("before delete head: ", letters)
+id1 = id(letters)
+print(id1)
 delete_head(letters)
 print("after delete head: ", letters)
+id2 = id(letters)
+print(id2)
+print("id1 vs id2 ", id1 == id2)  # True aka the same list
 
 # we pass the reference
 # t amd letters are aliases to the same object : t is letters
@@ -317,8 +324,8 @@ print("after delete head: ", letters)
 # OPERATIONS THAT MODIFY LISTS AND OPERATIONS THAT CREATES NEW LISTS
 
 
-#APPEND MODIFY BUT NOT CREATE
-t1  =  [1, 2 ]
+# APPEND MODIFY BUT NOT CREATE NEW LIST
+t1 = [1, 2 ]
 print("before appending ", t1)
 id1 = id(t1)
 t1.append(3) # None
@@ -342,7 +349,7 @@ print("id1 vs id2 ", id1 == id2)  # False
 
 
 
-# slice operatpr
+# slice operator
 
 t4 = [1, 2, 3]
 id1 = id(t4)
@@ -352,9 +359,27 @@ id2 = id(t2)
 print("id1 vs id2 ", id1 == id2)  # False
 
 
-# what about forcing
+def bad_delete_head(tt):
+    tt = tt[1:]       # WRONG because tt is a local variable which shadows tt
 
-t1 = t[1:]
+t5 = [1, 2, 3, 4, 5]
+print("t5 before: ", t5)
+bad_delete_head(t5)
+print("t5 after: ", t5)
+'''
+t5 before:  [1, 2, 3, 4, 5]
+t5 after:  [1, 2, 3, 4, 5]
+'''
+
+
+def tail(t):
+    return t[1:]
+
+letters = ['a', 'b', 'c']
+rest = tail(letters)
+print(rest)
+
+
 
 
 
